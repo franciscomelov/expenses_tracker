@@ -1,3 +1,2 @@
-test = "desayuno, lacteo"
-
-print(test)
+handle = open("test.txt","r")
+counts = dict()

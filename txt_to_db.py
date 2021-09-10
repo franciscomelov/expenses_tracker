@@ -29,7 +29,8 @@ cur = conn.cursor()
 
 cur.execute('SELECT * FROM experiments')
 data = cur.fetchall()
-print(data)
+for row in data:
+    print(row)
 
 conn.commit()
 conn.close()
