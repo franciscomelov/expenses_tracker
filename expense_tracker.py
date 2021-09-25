@@ -123,26 +123,33 @@ def run():
             amount = float(input("Precio: "))
             tags = input("Ingresa cateorias separadas por coma =  desayuno,lacteso...: ").split(",")
             expense_tracker.add(title, amount, tags)
+
         elif todo == "2":  # list
             expense_tracker.list()
+
         elif todo == "3":  # get
             title = input("Ingresa el nombre del producto: ")
             expense_tracker.get(title)
+
         elif todo == "4":  # edit
             title = input("Ingresa el nombre del producto: ")
             expense_tracker.get(title)
             id = int(input("Ingresa el id del producto a editar: "))
             expense_tracker.edit(id)
+
         elif todo == "5":  # delete
             title = input("Ingresa el nombre del producto: ")
             expense_tracker.get(title)
             id = int(input("Ingresa el id del producto a eliminar: "))
             expense_tracker.delete(id)
+
         elif todo == "0":
             print("**ADIOS**")
             break
+
         elif todo == "99":
             expense_tracker._test()  # para prueba
+            
         else:
             print("Comando Equivocado")
 
