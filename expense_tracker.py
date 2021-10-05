@@ -1,15 +1,7 @@
-# https://twitter.com/jangiacomelli/status/1331170948150558723
-# https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping
+#!/usr/bin/env python2.7
 
-# Build expense tracker CLI app.
 
-# Cover:
-# [X]Add expense
-# [X]list expenses
-# [X]get expense --> Añadir busceda por producto
-# [X]edit expense
-# [X]delete expense  -->DEcidir si al eliminar se recorreran los id
-# [X]Store expenses in TXT file. --> almost
+
 
 import csv
 from datetime import datetime
@@ -121,35 +113,35 @@ def run():
     5 - delete expense
     0 - Salir
         """)
+        match todo:
+            case "1":# add
+                expense_tracker.add()
 
-        if todo == "1":  # add
-            expense_tracker.add()
+            case "2":  # list
+                expense_tracker.list()
 
-        elif todo == "2":  # list
-            expense_tracker.list()
+            case "3":  # get
+                expense_tracker.get()
 
-        elif todo == "3":  # get
-            expense_tracker.get()
+            case "4":  # edit
+                expense_tracker.get()
+                expense_tracker.edit()
 
-        elif todo == "4":  # edit
-            expense_tracker.get()
-            expense_tracker.edit()
+            case "5":  # delete
+                expense_tracker.get()
+                expense_tracker.delete()
 
-        elif todo == "5":  # delete
-            expense_tracker.get()
-            expense_tracker.delete()
+            case "0":
+                print("**ADIOS**")
+                break
 
-        elif todo == "0":
-            print("**ADIOS**")
-            break
+            case "99":
+                expense_tracker._test()  # para prueba
+                
+            case _:
+                print("Comando Equivocado")
 
-        elif todo == "99":
-            expense_tracker._test()  # para prueba
-            
-        else:
-            print("Comando Equivocado")
-
-    # if progam ends everythins is saved in deb.txt
+    # if progam ends everything is saved in deb.txt
     expense_tracker._save()
 
 if __name__ == "__main__":

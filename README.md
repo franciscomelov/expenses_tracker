@@ -2,6 +2,7 @@
 Proyect based on twitter thread [watch here](https://twitter.com/jangiacomelli/status/1331170945738760192)
 ___
 ## What is Expense Tracker?
+version: Python 3.10  
 Basic CLI enpense tracker that works with a txt file as data base.  
 This is a work in progress while I am still learning Python, thus, it will change its functionalities and the way it is structured.  
 I started the program in spanish and some lines are still in spanish, I will change it to English.  
