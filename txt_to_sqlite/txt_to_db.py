@@ -27,6 +27,7 @@ cur = conn.cursor()
 # """ id,title,amount,created_at,tags
 # 2,papas,12.2,2020-12-03,"['comida', 'snack']" """
 
+# Print from database
 cur.execute('SELECT * FROM experiments')
 data = cur.fetchall()
 for row in data:

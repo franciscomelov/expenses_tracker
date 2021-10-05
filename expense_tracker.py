@@ -14,8 +14,6 @@
 import csv
 from datetime import datetime
 
-
-# CLass para guardar epense unica
 class Expense:
     def __init__(self, id, title, amount, created_at, tags):
         self.title = title
@@ -24,16 +22,17 @@ class Expense:
         self.tags = tags
         self.id = id
 
-# Class para guardar diferentes expenses cada expense se guardara como un objeto
-# dentro del array self.expenses self.expenses =[{expense_1}, {expense:2},...]
 
-
+# self.expense_tracker =[{expense_1}, {expense_2},...]
 class Expense_tracker:
     def __init__(self):
         self.expenses = []
 
-    # Añade solo un elemento
-    def add(self,  title, amount, tags):
+    def add(self):
+        print("Ingresa los datos")
+        title = input("Producto : ")
+        amount = float(input("Precio: "))
+        tags = input("Ingresa cateorias separadas por coma =  desayuno,lacteso...: ").split(",")
         if len(self.expenses) == 0:  # si es el primer expense id = 1
             id = 1
         else:  # si hay mas de 1 id = id anterior mas 1 - porque al eliminar se perdera la continuidad del id 1,2,4
@@ -45,11 +44,11 @@ class Expense_tracker:
     def super_add(self, id, title, amount, created_at, tags):
         self.expenses.append(Expense(int(id), title, amount, created_at, tags))
 
-    def list(self):  # itera sobre cada index de self.expenses
-        for expense in self.expenses:  # manda expense a self._print
+    def list(self):
+        for expense in self.expenses:
             self._print(expense)
 
-    def _print(self, expense):  # imprime expense unica
+    def _print(self, expense):
         print("*******************")
         print(expense.id)
         print(expense.title)
@@ -58,12 +57,14 @@ class Expense_tracker:
         print(expense.tags)
         print("*******************")
 
-    def get(self, title):  # itera sobre cada expense de self.expenses si title coincide regresa la impresion
+    def get(self):  # itera sobre cada expense de self.expenses si title coincide regresa la impresion
+        title = input("Ingresa el nombre del producto: ")
         for expense in self.expenses:
             if title == expense.title:
                 self._print(expense)
 
-    def edit(self, id):  # itera sobre cada expense i compara parametro id con self.expenses.id
+    def edit(self):  # itera sobre cada expense i compara parametro id con self.expenses.id
+        id = int(input("Ingresa el id del producto a editar: "))
         for i, expense in enumerate(self.expenses):  # enumerate regresa un entero desde 0 hasta n  sirve para sacar el index de expense que coinsidio
             if id == expense.id:  # si coincide
                 title = input("producto: ")   # pregunta por datos para cambiar
@@ -72,9 +73,10 @@ class Expense_tracker:
                 self.expenses[i] = Expense(id, title, amount, expense.created_at, tags)
                 # Remplaza  self.expenses[indice en base a i] id  y fecha queda igual
 
-    def delete(self, id):  # itera sobre cada exense
+    def delete(self, id):
+        id = int(input("Ingresa el id del producto a eliminar: "))
         for i, expense in enumerate(self.expenses):
-            if id == expense.id:  # si el id coinside
+            if id == expense.id:
                 del self.expenses[i]  # lo elimina en base a i que es igual al index
                 break  # break for
 
@@ -118,30 +120,21 @@ def run():
         """)
 
         if todo == "1":  # add
-            print("Ingresa los datos")
-            title = input("Producto : ")
-            amount = float(input("Precio: "))
-            tags = input("Ingresa cateorias separadas por coma =  desayuno,lacteso...: ").split(",")
-            expense_tracker.add(title, amount, tags)
+            expense_tracker.add()
 
         elif todo == "2":  # list
             expense_tracker.list()
 
         elif todo == "3":  # get
-            title = input("Ingresa el nombre del producto: ")
-            expense_tracker.get(title)
+            expense_tracker.get()
 
         elif todo == "4":  # edit
-            title = input("Ingresa el nombre del producto: ")
-            expense_tracker.get(title)
-            id = int(input("Ingresa el id del producto a editar: "))
-            expense_tracker.edit(id)
+            expense_tracker.get()
+            expense_tracker.edit()
 
         elif todo == "5":  # delete
-            title = input("Ingresa el nombre del producto: ")
-            expense_tracker.get(title)
-            id = int(input("Ingresa el id del producto a eliminar: "))
-            expense_tracker.delete(id)
+            expense_tracker.get()
+            expense_tracker.delete()
 
         elif todo == "0":
             print("**ADIOS**")

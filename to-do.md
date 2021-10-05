@@ -1,4 +1,5 @@
 # Things to do.
 
-- Rearenge files and folders
-- 
+- [ ] Refactor code
+- [ ] Translate everything in English
+- [x] Rearenge files and folders
