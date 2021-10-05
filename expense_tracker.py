@@ -91,8 +91,7 @@ class Expense_tracker:
         a = type(getattr(self.expenses[len(self.expenses) - 1], "id"))
         print(a)
 
-
-def run():
+def initiate_expense_tracker():
     expense_tracker = Expense_tracker()  # Crea objeto inical
     # Primer instruncion correra siempre al inicio y leera db.txt y lo guarda en mi class expense_tracker
 
@@ -107,6 +106,10 @@ def run():
             # si tienen informacion añade cada row[n] es un elemento de 6,cacahuates,5.0,2020-12-03,['chatarra']
             """ id,title,amount,created_at,tags
                 2,papas,12.2,2020-12-03,"['comida', 'snack']" """
+    return expense_tracker
+
+def run():
+    expense_tracker = initiate_expense_tracker()
 
     while True:
         # MENU normal
