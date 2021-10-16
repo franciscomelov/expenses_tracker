@@ -32,7 +32,7 @@ class Expense_tracker:
         # haciendo append a self.expenses            datetime regrea fecha y hora actual
         self.expenses.append(Expense(id, title, amount, datetime.now(), tags))
 
-    # añade desde db.txt a self.expenses al inicia programa
+    # Adds from db.txt to self.expenses, at the begining
     def super_add(self, id, title, amount, created_at, tags):
         self.expenses.append(Expense(int(id), title, amount, created_at, tags))
 
