@@ -1,10 +1,8 @@
-#!/usr/bin/env python2.7
-
-
-
+#!/usr/bin/env python3.10
 
 import csv
 from datetime import datetime
+
 
 class Expense:
     def __init__(self, id, title, amount, created_at, tags):
@@ -83,6 +81,7 @@ class Expense_tracker:
         a = type(getattr(self.expenses[len(self.expenses) - 1], "id"))
         print(a)
 
+
 def initiate_expense_tracker():
     expense_tracker = Expense_tracker()  # Crea objeto inical
     # Primer instruncion correra siempre al inicio y leera db.txt y lo guarda en mi class expense_tracker
@@ -114,7 +113,7 @@ def run():
     0 - Salir
         """)
         match todo:
-            case "1":# add
+            case "1":  # add
                 expense_tracker.add()
 
             case "2":  # list
@@ -143,6 +142,7 @@ def run():
 
     # if progam ends everything is saved in deb.txt
     expense_tracker._save()
+
 
 if __name__ == "__main__":
     run()
